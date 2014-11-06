@@ -188,7 +188,11 @@ function feedburner_redirect() {
 	$feed_url = $options['feedburner_url'];
 	$comment_url = $options['feedburner_comment_url'];
 	if ($feed_url == null && $comment_url == null) return;
-
+	//Add _es to repository url if in spanish
+	if(ICL_LANGUAGE_CODE=='es'){
+		$feed_url =$feed_url."_es";
+		echo("Works");
+	}
 	// Get category
 	$cat = null;
 	if ($wp->query_vars['category_name'] != null) {
